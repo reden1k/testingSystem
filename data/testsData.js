@@ -1,4 +1,4 @@
-const singleAnswerQuestions = [
+export const singleAnswerQuestions = [
     { 
         question: "Что такое JavaScript?",
         answer: "Язык программирования",
@@ -120,7 +120,7 @@ const singleAnswerQuestions = [
     },
   ];
 
-  const multipleAnswersQuestions = [
+  export const multipleAnswersQuestions = [
 	//1
 	{
 		question: 'Какие из следующих значений являются ложными в JavaScript?',
@@ -268,5 +268,101 @@ const singleAnswerQuestions = [
 		wrong2: 'Объявление переменной',
 	},
 ];
+
+export const textAnswersQuestions = [
+	//1
+	{
+		question: 'Опишите цикл for в JavaScript',
+		answer1: 'Повторение действий',
+	},
+
+	//2
+	{
+		question: 'Какое ключевое слово используется для создания переменной?',
+		answer1: 'let',
+	},
+
+	//3
+	{
+		question:
+			'Какое значение в JavaScript используется для обозначения логического "истина"?',
+		answer1: 'true',
+	},
+
+	//4
+	{
+		question: 'Какой метод используется для вывода данных в консоль?',
+		answer1: 'log',
+	},
+
+	//5
+	{
+		question: 'Как начинается комментарий на одну строку в JavaScript?',
+		answer1: '//',
+	},
+
+	//6
+	{
+		question:
+			'Как называется структура данных, используемая для хранения множества значений в одной переменной?',
+		answer1: 'массив',
+	},
+
+	//7
+	{
+		question:
+			'Какой оператор используется для присваивания значения переменной?',
+		answer1: '=',
+	},
+
+	//8
+	{
+		question: 'Какое слово используется для создания нового объекта?',
+		answer1: 'new',
+	},
+
+	//9
+	{
+		question:
+			'Как называется операция, преобразующая переменную в логический тип?',
+		answer1: 'Boolean',
+	},
+
+	//10
+	{
+		question: 'Что возвращает метод массива indexOf(), если элемент не найден?',
+		answer1: '-1',
+	},
+
+	//11
+	{
+		question: 'Какой метод у строк в JavaScript возвращает длину строки?',
+		answer1: 'length',
+	},
+
+	//12
+	{
+		question: 'Какой символ используется для разделения параметров в функции?',
+		answer1: 'запятая',
+	},
+
+	//13
+	{
+		question: 'Какой метод добавляет элемент в начало массива?',
+		answer1: 'unshift',
+	},
+
+	//14
+	{
+		question: 'Какой метод удаляет последний элемент из массива?',
+		answer1: 'pop()',
+	},
+
+	//15
+	{
+		question: 'Что делает оператор `===` ?',
+		answer1: 'Сравнивает',
+	},
+]
 
   
