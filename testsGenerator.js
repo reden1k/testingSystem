@@ -30,8 +30,8 @@ export function createTest(currentUser, textAnswersQuestions,singleAnswerQuestio
 }
 
 export const startTest = (test, currentUser) => {
-    const formatedTest = formatTest(test)
-    for (const qa in test) {
+    const formatedTest = formatTest(test);
+    for (const qa in formatedTest) {
         const answers = {
           arrayOfAnswers: [],
           isTextInput: false,
@@ -55,7 +55,7 @@ export const startTest = (test, currentUser) => {
               answers.isTextInput = true;
             }
         }
-        // getAnswer(answers, currentUser, test[qa]);
+         getAnswer(answers, currentUser, formatedTest[qa]);
         console.log(answers);
     }
     console.log(formatTest(test))
@@ -77,7 +77,8 @@ const getAnswer = (answers, currentUser, test) => {
       input = correctInputAnswer(Number(readlineSync.question('Type number of answer: ')));
       secondInput = correctInput(Number(readlineSync.question('One more answer: ')));
   }
-  userAnswers.push(input, secondInput);
+  
+  userAnswers.push(test[input], test[secondInput]);
 
   if (answers.arrayOfAnswers > 1) {
     for (const e of userAnswers) {
