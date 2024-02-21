@@ -135,8 +135,8 @@ export const singleAnswerQuestions = [
 		question: 'Какие из следующих методов массива изменяют исходный массив?',
 		answer1: '.splice()',
 		answer2: '.push()',
-		answer3: `""`,
-		wrong1: '.sort()',
+		wrong1: `""`,
+		wrong2: '.sort()',
 	},
 
 	//3
@@ -274,12 +274,14 @@ export const textAnswersQuestions = [
 	{
 		question: 'Опишите цикл for в JavaScript',
 		answer1: 'Повторение действий',
+		textInput: true,
 	},
 
 	//2
 	{
 		question: 'Какое ключевое слово используется для создания переменной?',
 		answer1: 'let',
+		textInput: true,
 	},
 
 	//3
@@ -287,18 +289,21 @@ export const textAnswersQuestions = [
 		question:
 			'Какое значение в JavaScript используется для обозначения логического "истина"?',
 		answer1: 'true',
+		textInput: true,
 	},
 
 	//4
 	{
 		question: 'Какой метод используется для вывода данных в консоль?',
 		answer1: 'log',
+		textInput: true,
 	},
 
 	//5
 	{
 		question: 'Как начинается комментарий на одну строку в JavaScript?',
 		answer1: '//',
+		textInput: true,
 	},
 
 	//6
@@ -306,6 +311,7 @@ export const textAnswersQuestions = [
 		question:
 			'Как называется структура данных, используемая для хранения множества значений в одной переменной?',
 		answer1: 'массив',
+		textInput: true,
 	},
 
 	//7
@@ -313,12 +319,14 @@ export const textAnswersQuestions = [
 		question:
 			'Какой оператор используется для присваивания значения переменной?',
 		answer1: '=',
+		textInput: true,
 	},
 
 	//8
 	{
 		question: 'Какое слово используется для создания нового объекта?',
 		answer1: 'new',
+		textInput: true,
 	},
 
 	//9
@@ -326,42 +334,49 @@ export const textAnswersQuestions = [
 		question:
 			'Как называется операция, преобразующая переменную в логический тип?',
 		answer1: 'Boolean',
+		textInput: true,
 	},
 
 	//10
 	{
 		question: 'Что возвращает метод массива indexOf(), если элемент не найден?',
 		answer1: '-1',
+		textInput: true,
 	},
 
 	//11
 	{
 		question: 'Какой метод у строк в JavaScript возвращает длину строки?',
 		answer1: 'length',
+		textInput: true,
 	},
 
 	//12
 	{
 		question: 'Какой символ используется для разделения параметров в функции?',
 		answer1: 'запятая',
+		textInput: true,
 	},
 
 	//13
 	{
 		question: 'Какой метод добавляет элемент в начало массива?',
 		answer1: 'unshift',
+		textInput: true,
 	},
 
 	//14
 	{
 		question: 'Какой метод удаляет последний элемент из массива?',
 		answer1: 'pop()',
+		textInput: true,
 	},
 
 	//15
 	{
 		question: 'Что делает оператор `===` ?',
 		answer1: 'Сравнивает',
+		textInput: true,
 	},
 ]
 
