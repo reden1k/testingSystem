@@ -29,21 +29,99 @@ export function createTest(currentUser, textAnswersQuestions,singleAnswerQuestio
     return {};
 }
 
-export const niceOutPut = (test) => {
-    const arr = [];
+export const startTest = (test, currentUser) => {
+
     for (const qa in test) {
-        console.log('\n')
+        const answers = {
+          arrayOfAnswers: [],
+          isTextInput: false,
+        };
+        console.log('\n');
+        let numberOfAns = 1;
         for (const e in test[qa]) {
+          console.log(test[qa])
             if (e === 'question') {
                 console.log(`Question: ${test[qa][e]}`)
             }
-            if (e !== 'question') {
-                arr.push(test[qa][e]);
-                console.log(`Answers: ${test[qa][e]}`);
+            if (e !== 'question' && !e.textInput) {
+                console.log(`${numberOfAns}: ${test[qa][e]}`);
+                answers[numberOfAns] = test[qa][e]
+                numberOfAns += 1;
+            }
+            if (e === 'answer' || e === 'answer1' || e === 'answer2' || e === 'answer3' && e !== 'textInput') {
+                answers.arrayOfAnswers.push(test[qa][e]);
+            }
+            if (e === 'textInput') {
+              answers.isTextInput = true;
             }
         }
+        // getAnswer(answers, currentUser, test[qa]);
+        console.log(answers);
     }
-    return arr;
+    console.log(formatTest(test))
+    return [];
+}
+
+
+const getAnswer = (answers, currentUser, test) => {
+  const userAnswers = [];
+  let input;
+  let secondInput;
+  let score = 0;
+  if (answers.isTextInput) {
+     input = readlineSync.question('Type answer (word, command or function)');
+    correctInputAnswer += 4;
+  }
+
+  if (answers.arrayOfAnswers.length > 1) {
+      input = correctInputAnswer(Number(readlineSync.question('Type number of answer: ')));
+      secondInput = correctInput(Number(readlineSync.question('One more answer: ')));
+  }
+  userAnswers.push(input, secondInput);
+
+  if (answers.arrayOfAnswers > 1) {
+    for (const e of userAnswers) {
+      for (const ans of answers.arrayOfAnswers) {
+        if (typeof e === 'string' && typeof ans === 'string') {
+          equalIgnoreCase(e, ans) ? score += 1 : score;
+        }
+      }
+    }
+    if (score === answers.arrayOfAnswers) {
+      addScore(currentUser, score);
+    }
+    console.log(currentUser)
+  }
+  answers.arrayOfAnswers[0] === input ? addScore(currentUser, score) : addScore(currentUser, 0);
+}
+
+export const formatTest = (test) => {
+  const formatedTest = {};
+  for (const task in test) {
+    const formatedTask = {};
+    const answers = [];
+    let numberOfAns = 1;
+    for (const e in test[task]) {
+      console.log(e)
+      if (e === 'question') {
+        formatedTask[e] = test[task][e];
+        console.log(test[task][e] + '------')
+      }
+      if (e !== 'question' && !Object.hasOwn(test[task], 'textInput')) {
+        formatedTask[numberOfAns] = test[task][e];
+        numberOfAns += 1;
+      }
+      if (e === 'answer' || e === 'answer1' || e === 'answer2' || e === 'answer3' && e !== 'textInput') {
+        answers.push(test[task][e]);
+      }
+      if (e === 'textInput') {
+        formatedTask['isTextInput'] = true;
+      }
+    }
+    formatedTask.arrayOfAnswers = answers;
+    formatedTest[task] = formatedTask;
+  }
+  console.log(formatedTest)
 }
 
 const correctInput = (num) => {
@@ -52,7 +130,15 @@ const correctInput = (num) => {
         correctInput(newNum);
     }
     return num;
+}
+
+const correctInputAnswer = (num) => {
+  while (num > 4) {
+    const newNum = readlineSync.question('Incorrect input! Answer doesnt exist');
+    correctInputAnswer(newNum);
   }
+  return num;
+}
 
 
 const addScore = (user, count) => {
@@ -60,3 +146,9 @@ const addScore = (user, count) => {
     return user;
 }
 
+const equalIgnoreCase = (text, text1) => {
+  if (text.toLowerCase() === text1.toLowerCase()) {
+    return true;
+  }
+  return false;
+}
