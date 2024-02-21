@@ -30,7 +30,7 @@ export function createTest(currentUser, textAnswersQuestions,singleAnswerQuestio
 }
 
 export const startTest = (test, currentUser) => {
-
+    const formatedTest = formatTest(test)
     for (const qa in test) {
         const answers = {
           arrayOfAnswers: [],
@@ -121,7 +121,7 @@ export const formatTest = (test) => {
     formatedTask.arrayOfAnswers = answers;
     formatedTest[task] = formatedTask;
   }
-  console.log(formatedTest)
+  return formatedTest;
 }
 
 const correctInput = (num) => {
