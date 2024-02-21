@@ -2,7 +2,7 @@
 
 import readlineSync from 'readline-sync'; 
 import { testTaker, curator, logout, login, isEmptyUser } from './testTaker.js';
-import { createTest, niceOutPut } from './testsGenerator.js';
+import { createTest, startTest, formatTest } from './testsGenerator.js';
 import { singleAnswerQuestions, multipleAnswersQuestions, textAnswersQuestions } from './data/testsData.js'
 
 const testingSystemProgram = () => {
@@ -25,7 +25,7 @@ const testingSystemProgram = () => {
                 break;
 
             case '/startTest':
-                //student start test
+                startTest(test, currentUser);
                 break;
             
             case '/makeTest':
@@ -33,9 +33,13 @@ const testingSystemProgram = () => {
                 break;
             
             case '/niceOutput':
-                niceOutPut(test);
+                startTest(test);
                 break;
-
+            
+            case '/format':
+                formatTest(test);
+                break;
+                
             case '/login': 
                 currentUser = login(currentUser, testingUsers);
                 break;
@@ -48,8 +52,6 @@ const testingSystemProgram = () => {
 
         }
         input = readlineSync.question('Type command (/help for get commands): ');
-        console.log(testingUsers);
-        console.log(currentUser)
     }
 }
 
