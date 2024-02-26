@@ -1,23 +1,16 @@
 {
   "name": "testingsystem",
   "version": "1.0.0",
-  "main": "testingSystem.js",
+  "description": "",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/reden1k/testingSystem.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/reden1k/testingSystem/issues"
-  },
-  "homepage": "https://github.com/reden1k/testingSystem#readme",
-  "description": "",
   "dependencies": {
+    "lodash": "^4.17.21",
     "readline-sync": "^1.4.10"
   }
 }

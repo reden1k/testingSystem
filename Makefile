@@ -1,5 +1,4 @@
-start:
-	node testingSystem.js
-
 setup:
 	npm ci
+start:
+	node project/App.js
